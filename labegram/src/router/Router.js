@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import ErrorPage from '../screens/ErrorPage'
-import FeedPage from '../screens/FeedPage'
-import LoginPage from '../screens/LoginPage'
-import PostDetailPage from '../screens/PostDetailPage'
-import SignUpPage from '../screens/SignUpPage'
+import ErrorPage from '../screens/ErrorPage/ErrorPage'
+import FeedPage from '../screens/FeedPage/FeedPage'
+import LoginPage from '../screens/LoginPage/LoginPage'
+import PostDetailPage from '../screens/PostDetailPage/PostDetailPage'
+import SignUpPage from '../screens/SignUpPage/SignUpPage'
 
 function Router() {
     return (
