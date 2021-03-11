@@ -2,12 +2,14 @@ import axios from 'axios'
 import { baseUrl } from '../constants/urls'
 import { goToFeed } from '../router/coordinator'
 
-export const login = (body, history, setLoading) => {
+export const login = (body, setLoading) => {
     setLoading(true)
     axios.post(`${baseUrl}/user/login`, body).then((res) => {
-      setLoading(false)
       localStorage.setItem("token", res.data.token)
-      goToFeed(history)
+
+      setLoading(false)
+      
+      
     }).catch((err) => {
       setLoading(false)
       window.alert("Email ou senha incorretos!")
@@ -15,14 +17,16 @@ export const login = (body, history, setLoading) => {
     })
   }
 
-export const signUp = (body, history, setLoading) => {
+export const signUp = (body, setLoading) => {
     setLoading(true)
     axios.post(`${baseUrl}/user/signup`, body).then((res) => {
-      setLoading(false)
       localStorage.setItem("token", res.data.token)
-      goToFeed(history)
+      setLoading(false)
+      
+      
     }).catch((err) => {
       setLoading(false)
       console.log(err.response.data)
     })
+
   }

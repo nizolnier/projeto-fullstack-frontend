@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
+import { goToFeed } from '../../router/coordinator';
 import { login } from '../../services/user'
 
 function LoginPage() {
@@ -10,8 +11,9 @@ function LoginPage() {
 
   const handleSubmission = (e) => {
     e.preventDefault()
-    login(form, history, setLoading)
+    login(form, setLoading)
     reset()
+    goToFeed(history)
   }
 
   return (
@@ -19,7 +21,7 @@ function LoginPage() {
       <form onSubmit={handleSubmission}>
         <input placeholder="email" type="email" onChange={onChange} value={form.email} name="email" />
         <input placeholder="password" type="password" onChange={onChange} value={form.password} name="password" />
-        <button>Sign up</button>
+        <button>Login</button>
       </form>
     </div>
   );
