@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ErrorPage from '../screens/ErrorPage/ErrorPage'
 import FeedPage from '../screens/FeedPage/FeedPage'
 import LoginPage from '../screens/LoginPage/LoginPage'
-import PostDetailPage from '../screens/PostDetailPage/PostDetailPage'
+import PostDetailsPage from '../screens/PostDetailsPage/PostDetailsPage'
 import SignUpPage from '../screens/SignUpPage/SignUpPage'
 
 function Router() {
@@ -19,7 +19,7 @@ function Router() {
                     <FeedPage />
                 </Route>
                 <Route exact path="/feed/post/:id">
-                    <PostDetailPage />
+                    <PostDetailsPage />
                 </Route>
                 <Route>
                     <ErrorPage />
