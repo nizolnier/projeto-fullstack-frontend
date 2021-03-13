@@ -15,9 +15,8 @@ function LoginPage() {
 
   const handleSubmission = (e) => {
     e.preventDefault()
-    login(form, setLoading)
+    login(form, history, setLoading)
     reset()
-    goToFeed(history)
   }
 
   return (

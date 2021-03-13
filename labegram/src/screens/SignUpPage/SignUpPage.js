@@ -17,6 +17,7 @@ function SignUpPage() {
     e.preventDefault()
     signUp(form, history, setLoading)
     reset()
+    
   }
 
   return (
@@ -71,7 +72,7 @@ function SignUpPage() {
               <Input required placeholder="Add a profile picture" value={form.profilePicture} onChange={onChange} name="profilePicture" />
             </InputGroup>
           </FormControl>
-          <Checkbox required>I agree with the <Terms href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Use</Terms></Checkbox>
+          <Checkbox defaultChecked>I agree with the <Terms href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Use</Terms></Checkbox>
           <Button isLoading={loading} colorScheme="pink" variant="solid" type="submit">SIGN UP</Button>
         </FormContainer>
         <Message>

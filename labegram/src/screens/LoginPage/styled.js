@@ -41,7 +41,7 @@ export const Anchor = styled.h1`
 `
 
 export const MainContainer = styled.div`
-    height: 100vh;
+    height: 92vh;
     background-color: #DAE0E6;
     padding-top: 2em;
 `
