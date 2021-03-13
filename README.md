@@ -1,4 +1,4 @@
-# Projeto Fullstack - Labegram
+# Projeto Fullstack - Labegram (Frontend)
 Desenvolvido com 💜 por Nicole Zolnier
 
 ## Link do Surge
