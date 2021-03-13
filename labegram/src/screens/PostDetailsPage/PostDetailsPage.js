@@ -4,12 +4,14 @@ import { useParams } from 'react-router';
 import Loading from '../../components/Loading';
 import { baseUrl } from '../../constants/urls';
 import { useProtectedPage } from '../../hooks/useProtectedPage';
+import PostDetailsCard from '../../components/PostDetailsCard/PostDetailsCard'
+import { PostContainer } from './styled';
 
-function PostDetailPage() {
+function PostDetailsPage() {
   useProtectedPage()
   const params = useParams()
 
-  const [post, setPost] = useState(undefined)
+  const [post, setPost] = useState({})
 
   useEffect(() => {
     getPostDetails()
@@ -21,17 +23,17 @@ function PostDetailPage() {
         authorization: localStorage.getItem("token")
       }
     }).then(response => {
-      console.log(response.data)
       setPost(response.data)
+      console.log(response.data)
     }).catch(err => {
       console.log(err.response && err.response.data || err.message)
     })
   }
   return (
-    <div>
-     {!post ? <Loading /> : <div>cansei</div>}
-    </div>
+    <PostContainer>
+     {!post ? <Loading /> : <PostDetailsCard subtitle={post.subtitle} tags={post.tags} collection={post.collection} profilePic={post.profilePicture} date={post.date} file={post.file} nickname={post.nickname}  />}
+    </PostContainer>
   );
 }
 
-export default PostDetailPage;
+export default PostDetailsPage;

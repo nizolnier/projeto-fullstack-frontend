@@ -6,6 +6,7 @@ import Loading from '../../components/Loading'
 import PostCard from '../../components/PostCard/PostCard'
 import { baseUrl } from '../../constants/urls'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
+import { PostsContainer } from './styled'
 
 function FeedPage() {
   useProtectedPage()
@@ -29,13 +30,13 @@ function FeedPage() {
   }
 
   return (
-    <div>
-      <CreatePost update={getFeed} />
+    <PostsContainer>
+      <CreatePost />
       {!posts ? <Loading /> : posts.map((item) => {
         return <PostCard id={item.id} key={item.id} nickname={item.nickname} profilePic={item.profilePicture} file={item.file} subtitle={item.subtitle} tags={item.tags} />
       })}
 
-    </div>
+    </PostsContainer>
   )
 }
 

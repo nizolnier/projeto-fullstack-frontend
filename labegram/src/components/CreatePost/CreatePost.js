@@ -1,25 +1,20 @@
 import React from 'react'
-import { useForm } from '../../hooks/useForm';
-import { createPost } from '../../services/post'
+import { FormControl, Input, Button, Heading } from "@chakra-ui/react"
+import { FormContainer, LoginContainer, StyledBox } from './styled';
+import { useHistory } from 'react-router';
+import { goToCreate } from '../../router/coordinator';
 
-function CreatePost(props) {
-    const { form, onChange, reset } = useForm({ subtitle: "", file: "", tag: "", collection: "" })
+function CreatePost() {
+  const history = useHistory()
 
-    const handleSubmission = (e) => {
-        e.preventDefault()
-        createPost(form, props.update)
-        reset()
-    }
-
-    return (<div>
-        <form onSubmit={handleSubmission}>
-          <input placeholder="subtitle" onChange={onChange} value={form.subtitle} name="subtitle" />
-          <input placeholder="file" onChange={onChange} value={form.file} name="file" />
-          <input placeholder="tag" onChange={onChange} value={form.tag} name="tag" />
-          <input placeholder="collection" onChange={onChange} value={form.collection} name="collection" />
-          <button>Login</button>
-        </form>
-      </div>
+    return (<StyledBox borderWidth="1px" borderRadius="lg" onClick={() => goToCreate(history)}>
+        <LoginContainer>
+            <Heading size="lg" textAlign="center" pb="0.2em">Create Post</Heading>
+            <FormContainer>
+                <Button colorScheme="blue" variant="solid" type="submit">POST</Button>
+            </FormContainer>
+        </LoginContainer>
+    </StyledBox>
     )
 }
 
